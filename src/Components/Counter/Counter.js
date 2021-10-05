@@ -1,30 +1,68 @@
 //Connet react to store
 import { connect } from "react-redux";
 import {
-  Plus,
-  Minus,
-  PlusFive,
-  Multiple,
-  Zero,
-  Division
+  // Plus,
+  // Minus,
+  // PlusFive,
+  // Multiple,
+  // Zero,
+  // Division
+  changeFirstNum,
+  changeSecondNum,
+  changeOperator,
+  calculate,
 } from "../../Actions/CounterActions";
 
 import "./Counter.css";
 
 const Counter = ({
-  counter,
-  Plus,
-  Minus,
-  PlusFive,
-  Multiple,
-  Zero,
-  Division
+  // counter,
+  // Plus,
+  // Minus,
+  // PlusFive,
+  // Multiple,
+  // Zero,
+  // Division
+  result,
+  changeFirstNum,
+  changeSecondNum,
+  changeOperator,
+  calculate,
 }) => {
   return (
     <div className="container main-block">
       <div className="row">
         <div className="col center">
-          <button
+          <input
+            type="number"
+            onChange={(event) => {
+              changeFirstNum(event.target.value);
+            }}
+          />
+          <select
+            onChange={(event) => {
+              changeOperator(event.target.value);
+            }}
+          >
+            <option>Choise operator</option>
+            <option value="PLUS">+</option>
+            <option value="MINUS">-</option>
+            <option value="MULTIPLE">*</option>
+            <option value="DIVISION">/</option>
+          </select>
+          <input
+            type="number"
+            onChange={(event) => {
+              changeSecondNum(event.target.value);
+            }}
+          />
+          <div><button type="button" onClick={calculate}>
+            Calculate
+          </button>
+          <div>Result: {result}</div></div>
+          
+
+          {/* <button
             onClick={Plus}
             type="button"
             className="btn btn-success operators"
@@ -66,7 +104,7 @@ const Counter = ({
             className="btn btn-warning operators"
           >
             /2
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
@@ -75,17 +113,21 @@ const Counter = ({
 
 const mapStateToProps = ({ CounterReducer }) => {
   console.log("mapStateProps", CounterReducer);
-  const { counter } = CounterReducer;
-  return { counter };
+  const { result } = CounterReducer;
+  return { result };
 };
 
 const mapDispatchToProps = {
-  Plus,
-  Minus,
-  PlusFive,
-  Multiple,
-  Zero,
-  Division
+  // Plus,
+  // Minus,
+  // PlusFive,
+  // Multiple,
+  // Zero,
+  // Division
+  changeFirstNum,
+  changeSecondNum,
+  changeOperator,
+  calculate,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);

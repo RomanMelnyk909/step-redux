@@ -1,36 +1,63 @@
-export const Plus = () => {
+export const changeOperator = (operation) => {
   return {
-    type: "PLUS"
+    type: operation,
+    payload: operation,
   };
 };
 
-export const Minus = () => {
+export const changeFirstNum = (number) => {
   return {
-    type: "Minus"
+    type: "FIRST_NUM",
+    payload: number,
   };
 };
 
-export const PlusFive = number => {
+export const changeSecondNum = (number) => {
   return {
-    type: "PlUS_FIVE",
-    payload: number
+    type: "SECOND_NUM",
+    payload: number,
   };
 };
 
-export const Multiple = () => {
+export const calculate = () => {
   return {
-    type: "MULTIPLE"
+    type: "CALCULATE",
   };
 };
 
-export const Zero = () => {
-  return {
-    type: "ZERO"
-  };
-};
+// export const Plus = () => {
+//   return {
+//     type: "PLUS"
+//   };
+// };
 
-export const Division = () => {
-  return {
-    type: "DIVISION"
-  };
-};
+// export const Minus = () => {
+//   return {
+//     type: "Minus"
+//   };
+// };
+
+// export const PlusFive = number => {
+//   return {
+//     type: "PlUS_FIVE",
+//     payload: number
+//   };
+// };
+
+// export const Multiple = () => {
+//   return {
+//     type: "MULTIPLE"
+//   };
+// };
+
+// export const Zero = () => {
+//   return {
+//     type: "ZERO"
+//   };
+// };
+
+// export const Division = () => {
+//   return {
+//     type: "DIVISION"
+//   };
+// };
